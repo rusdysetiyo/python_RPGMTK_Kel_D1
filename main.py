@@ -4,6 +4,14 @@ import battle
 import tampilan
 import evaluasi
 import time
+import os
+import subprocess 
+
+def bersihkan_layar():
+    if os.name == 'nt':
+        subprocess.run('cls', shell=True)
+    else:
+        subprocess.run('clear', shell=True)
 
 def jalankan_game():
     tampilan.disclaimer()
@@ -45,4 +53,20 @@ def jalankan_game():
             break
 
 if __name__ == "__main__":
+    while True:
     jalankan_game()
+
+    # 2. Tawarkan opsi infiltrasi ulang
+        print("\n" + "="*65)
+        print(" [SISTEM] Simulasi Operasi Tembok Ratapan Solo telah berakhir.")
+        main_lagi = input(" >> Apakah Anda ingin mengajukan proposal infiltrasi ulang? (Y/N): ").upper()
+        
+        if main_lagi == 'Y':
+            print("\n[SISTEM] Memproses ulang protokol infiltrasi...")
+            time.sleep(1.5)
+
+        else:
+            print("\n[SISTEM] Menutup koneksi. Terima kasih atas partisipasi Anda.")
+            time.sleep(1.5)
+            bersihkan_layar() 
+            break
