@@ -4,14 +4,10 @@ import battle
 import tampilan
 import evaluasi
 import time
-import os
-import subprocess 
+
 
 def bersihkan_layar():
-    if os.name == 'nt':
-        subprocess.run('cls', shell=True)
-    else:
-        subprocess.run('clear', shell=True)
+    print("\033[H\033[J", end="")
 
 def jalankan_game():
     tampilan.disclaimer()
